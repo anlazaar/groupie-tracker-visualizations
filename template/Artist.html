@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/globalStyles.css" />
+    <link rel="stylesheet" href="/static/artistStyle.css" />
+    <title>Groupie-Tracker-Artist</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCZo1QhDwC35nWDcVXIz2G6xeQDGY17LY&callback=initMap&libraries=marker&v=weekly"
+      loading="async"
+      defer
+    ></script>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="heading">
+        <h1 class="logo" onclick="window.location.href='/'">𝔊𝔯𝔬𝔲𝔭𝔦𝔢-𝔗𝔯𝔞𝔠𝔨𝔢𝔯</h1>
+      </div>
+      <div class="card">
+        <div class="content-grid">
+          <div class="image-section">
+            <h2>{{.Name}}</h2>
+            <img src="{{.Image}}" alt="{{.Name}}" class="image" />
+          </div>
+          <div class="info-section">
+            <div class="info-block">
+              <span class="label">Creation Date:</span>
+              <span class="data">{{.CreationDate}}</span>
+            </div>
+            <div class="info-block">
+              <span class="label">First Album:</span>
+              <span class="data">{{.FirstAlbum}}</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Members:</span>
+              <span class="data">{{range .Members}}{{.}}<br />{{end}}</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Locations:</span>
+              <span class="data">{{range .Locations}}{{.}}<br />{{end}}</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Relations:</span>
+              <span class="data">
+                {{range $key, $value := .Relations}}
+                <b>{{$key}}:</b><br />
+                {{range $value}}{{.}}<br />{{end}}<br />
+                {{end}}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id="map"></div>
+      </div>
+    </center>
+    <div class="nav-buttons">
+      <button onclick="window.location.href='/'" class="nav-button">
+        <i class="fa fa-arrow-left"></i> Go Back
+        <span class="keyboard-shortcut">Press -> B</span>
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener("keydown", function (e) {
+        if (e.key.toLowerCase() === "b" && e.shiftKey) {
+          window.history.back();
+        }
+      });
+    </script>
+
+    <script type="application/json" id="artistData">
+      {{.}}
+    </script>
+    <script src="static/js/geo.js"></script>
+  </body>
+</html>

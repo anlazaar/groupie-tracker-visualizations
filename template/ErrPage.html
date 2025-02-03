@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/errStyle.css" />
+    <link rel="stylesheet" href="../static/artistStyle.css" />
+    <title>Error Page</title>
+  </head>
+  <body>
+    <div class="heading">
+      <h1 class="logo">𝔊𝔯𝔬𝔲𝔭𝔦𝔢-𝔗𝔯𝔞𝔠𝔨𝔢𝔯</h1>
+    </div>
+    <div id="main">
+      <div class="error-card">
+        <img src="/static/img/folder.png" alt="Error icon" />
+        <h1>Error {{.Status}}</h1>
+        <p>{{.Message}}</p>
+        <a href="/" class="button1">&#8634; Back to homepage</a>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button onclick="window.location.href='/'" class="nav-button">
+        <i class="fa fa-arrow-left"></i> Go Back
+        <span class="keyboard-shortcut">Press -> B</span>
+      </button>
+    </div>
+    <script>
+      document.addEventListener("keydown", function (e) {
+        if (e.key.toLowerCase() === "b" && e.shiftKey) {
+          window.history.back();
+        }
+      });
+    </script>
+  </body>
+</html>

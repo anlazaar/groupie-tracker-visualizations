@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1c1c1c;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.heading {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  color: goldenrod;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+  color: goldenrod;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffd700;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background: goldenrod;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+input[type="text"],
+select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #444;
+  color: #fff;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: goldenrod;
+  outline: none;
+}
